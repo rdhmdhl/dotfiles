@@ -11,7 +11,10 @@ fi
 
 # --- Install CLI tools ---
 echo "Installing CLI tools..."
-brew install tmux zsh zsh-autosuggestions zsh-syntax-highlighting jq neovim git ripgrep tree-sitter lua-language-server koekeishiya/formulae/skhd
+brew install tmux zsh zsh-autosuggestions zsh-syntax-highlighting romkatv/powerlevel10k/powerlevel10k jq neovim git ripgrep tree-sitter lua-language-server koekeishiya/formulae/skhd terminal-notifier
+
+# -- Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # -- Install Yabai
 echo "Installing Yabai..."
