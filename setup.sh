@@ -11,7 +11,20 @@ fi
 
 # --- Install CLI tools ---
 echo "Installing CLI tools..."
-brew install tmux zsh zsh-autosuggestions zsh-syntax-highlighting romkatv/powerlevel10k/powerlevel10k jq neovim git ripgrep tree-sitter lua-language-server koekeishiya/formulae/skhd terminal-notifier
+brew install \
+  tmux \
+  zsh \
+  zsh-autosuggestions \
+  zsh-syntax-highlighting \
+  romkatv/powerlevel10k/powerlevel10k \
+  jq \
+  neovim \
+  git \
+  ripgrep \
+  tree-sitter \
+  lua-language-server \
+  koekeishiya/formulae/skhd \
+  terminal-notifier
 
 # -- Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
@@ -39,6 +52,8 @@ echo "Linking dotfiles..."
 ln -sfn "$PWD/.zshrc" ~/.zshrc
 ln -sfn "$PWD/.p10k.zsh" ~/.p10k.zsh
 ln -sfn "$PWD/.tmux.conf" ~/.tmux.conf
+mkdir -p ~/.tmux/plugins
+ln -sfn "$PWD/.tmux/plugins/tpm" ~/.tmux/plugins/tpm
 ln -sfn "$PWD/.gitconfig" ~/.gitconfig
 mkdir -p ~/.config
 ln -sfv "$PWD/.nvim/" ~/.config/nvim/
@@ -46,6 +61,7 @@ mkdir -p ~/.config/yabai
 ln -sfn "$PWD/.yabai/yabairc" ~/.config/yabai/yabairc 
 mkdir -p ~/.config/skhd
 ln -sfn "$PWD/.skhd/skhdrc" ~/.config/skhd/skhdrc
+
 
 # --- Start yabai and skhd ---
 echo "Reminder: Grant Yabai and SKHD permissions in System Settings > Privacy & Security > Accessibility and Screen Recording"
