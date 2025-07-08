@@ -1,0 +1,10 @@
+font-family = "MesloLGS NF"
+font-size = 24.0
+font-family-bold = "MesloLGS NF"
+font-thicken = true
+
+window-colorspace = "display-p3"
+alpha-blending = "linear-corrected"
+
+theme = "rose-pine"
+
