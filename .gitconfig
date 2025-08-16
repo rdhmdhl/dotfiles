@@ -4,5 +4,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 [user]
-	name = rdhmdhl
-	email = reid@wearthefewture.com
+	name = reid-datum
+	email = reid@datum.xyz

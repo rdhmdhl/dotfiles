@@ -16,6 +16,10 @@ return {
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
+      local ft = vim.bo[bufnr].filetype
+      if ft == "prisma" or ft == "zmodel" then
+        return { timeout_ms = 1500, lsp_format = "fallback" }
+      end
       local disable_filetypes = { c = true, cpp = true }
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
@@ -28,6 +32,7 @@ return {
         lsp_format = lsp_format_opt,
       }
     end,
+
     formatters_by_ft = {
       go = { 'goimports' },
       lua = { 'stylua' },

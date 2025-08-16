@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git web-search zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,10 +117,13 @@ source $ZSH/oh-my-zsh.sh
 alias work="timer 60m && terminal-notifier -message 'Pomodoro'\
         -title 'Work Timer is up! Take a Break 😊'\
         -sound Crystal"
-        
+
 alias rest="timer 10m && terminal-notifier -message 'Pomodoro'\
         -title 'Break is over! Get back to work 😬'\
         -sound Crystal"
+
+# postgres
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # golang
 export PATH="$HOME/go/bin:$PATH"
@@ -128,7 +131,13 @@ export PATH="$HOME/go/bin:$PATH"
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/reidhommedahl/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac

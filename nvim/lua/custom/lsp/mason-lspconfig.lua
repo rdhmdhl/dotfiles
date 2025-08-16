@@ -6,7 +6,7 @@ mason.setup()
 
 -- Setup Mason-LSPConfig
 mason_lspconfig.setup {
-  ensure_installed = { 'lua_ls', 'pyright', 'ruff', 'gopls', 'clangd', 'ts_ls', 'yamlls', 'terraformls' },
+  ensure_installed = { 'lua_ls', 'pyright', 'ruff', 'gopls', 'clangd', 'ts_ls', 'yamlls', 'terraformls', 'prismals' },
   automatic_installation = false,
   automatic_enable = false,
 }
@@ -15,6 +15,9 @@ mason_lspconfig.setup {
 local lspconfig = require 'lspconfig'
 
 local servers = {
+  prismals = {
+    filetypes = { 'prisma' },
+  },
   terraformls = {
     filetypes = { 'terraform', 'tf', 'hcl' },
   },
