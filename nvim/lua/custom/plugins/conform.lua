@@ -42,6 +42,7 @@ return {
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       yaml = { 'yamlfmt' },
       terraform = { 'terraform_fmt' },
+      txt = { 'fmt' }
     },
   },
 }

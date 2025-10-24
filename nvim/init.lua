@@ -325,7 +325,37 @@ require('lazy').setup({
       -- vim.cmd.hi 'Comment gui=none'
     end,
   },
-
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Load the Carbonfox variant
+      vim.cmd("colorscheme carbonfox")
+    end,
+  },
+  {
+    'sainnhe/everforest',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.everforest_enable_italic = true
+      vim.cmd.colorscheme('everforest')
+    end
+  },
+  {
+    'sainnhe/gruvbox-material',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.gruvbox_material_enable_italic = true
+      vim.cmd.colorscheme('gruvbox-material')
+    end
+  },
   { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
 
   -- NOTE: Plugins can also be added by using a table,
@@ -816,7 +846,7 @@ require('lazy').setup({
 })
 
 -- set the colorscheme to tokyonight
-vim.cmd [[colorscheme tokyonight-moon]]
+vim.cmd [[colorscheme everforest]]
 
 -- load custom keybindings
 require 'custom.keybindings'
