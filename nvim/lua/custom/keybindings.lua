@@ -108,7 +108,7 @@ end, { silent = true, desc = 'Cycle through snippet choices' })
 
 -- Trigger snippet expansion manually (useful if you want to see available snippets)
 vim.keymap.set('i', '<C-s>', function()
-  require 'luasnip.extras.select_choice'()
+  require 'luasnip.extras.select_choice' ()
 end, { silent = true, desc = 'Select a snippet from the list' })
 -- Shortcut for searching your Neovim configuration files
 vim.keymap.set('n', '<leader>sn', function()

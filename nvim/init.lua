@@ -315,7 +315,7 @@ require('lazy').setup({
       require('alpha').setup(startify.config)
     end,
   },
-  -- colorscheme
+  -- INSTALL COLOR SCHEMES
   --If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
   {
     'folke/tokyonight.nvim',
@@ -845,8 +845,9 @@ require('lazy').setup({
   },
 })
 
--- set the colorscheme to tokyonight
-vim.cmd [[colorscheme everforest]]
+-- set the colorscheme
+-- vim.cmd [[colorscheme everforest]]
+vim.cmd [[colorscheme moonfly]]
 
 -- load custom keybindings
 require 'custom.keybindings'
