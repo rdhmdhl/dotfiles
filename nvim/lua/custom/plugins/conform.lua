@@ -7,6 +7,9 @@ return {
     {
       '<leader>f',
       function()
+        if vim.bo.filetype == "prisma" then
+          return
+        end
         require('conform').format { async = true, lsp_format = 'fallback' }
       end,
       mode = '',
@@ -18,7 +21,7 @@ return {
     format_on_save = function(bufnr)
       local ft = vim.bo[bufnr].filetype
       if ft == "prisma" or ft == "zmodel" then
-        return { timeout_ms = 1500, lsp_format = "fallback" }
+        return nil
       end
       local disable_filetypes = { c = true, cpp = true }
       local lsp_format_opt

@@ -847,7 +847,8 @@ require('lazy').setup({
 
 -- set the colorscheme
 -- vim.cmd [[colorscheme everforest]]
-vim.cmd [[colorscheme moonfly]]
+-- vim.cmd [[colorscheme moonfly]]
+vim.cmd [[ colorscheme tokyonight]]
 
 -- load custom keybindings
 require 'custom.keybindings'

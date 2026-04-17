@@ -128,15 +128,32 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 # golang
 export PATH="$HOME/go/bin:$PATH"
 
+# python version manager
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
 # tfenv
 export PATH="/opt/homebrew/opt/tfenv/bin:$PATH"
 
+# direnv
+eval "$(direnv hook zsh)"
+
+# nvm (lazy loaded)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm() {
+  unset -f nvm node npm npx pnpm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+node() { nvm use default > /dev/null; command node "$@"; }
+npm() { nvm use default > /dev/null; command npm "$@"; }
+npx() { nvm use default > /dev/null; command npx "$@"; }
+pnpm() { nvm use default > /dev/null; command pnpm "$@"; }
 
 # pnpm
 export PNPM_HOME="/Users/reidhommedahl/Library/pnpm"
@@ -144,3 +161,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# vim in terminal
+# bindkey -v
+
+export PATH="$HOME/.local/bin:$PATH"
